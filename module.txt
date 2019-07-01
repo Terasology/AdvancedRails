@@ -1,0 +1,9 @@
+{
+    "id" : "AdvancedRails",
+    "version" : "0.1.0-SNAPSHOT",
+    "author" : "",
+    "displayName" : "AdvancedRails",
+    "description" : "",
+    "dependencies" : [],
+    "serverSideOnly" : false
+}
