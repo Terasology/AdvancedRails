@@ -44,5 +44,7 @@
         ]
     },
     "Rails:RailVehicle": {},
-    "AdvancedRails:Locomotive": {}
+    "AdvancedRails:Locomotive": {},
+    "Network": {
+    }
 }
