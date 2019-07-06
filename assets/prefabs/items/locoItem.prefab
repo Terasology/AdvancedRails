@@ -5,7 +5,7 @@
     },
     "Item": {
         "name": "Minecart",
-        "icon": "Rails:minecart#loco",
+        "icon": "AdvancedRails:locoIcon",
         "usage": "IN_DIRECTION"
     },
     "Rails:CartDefinition": {

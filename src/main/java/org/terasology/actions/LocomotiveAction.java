@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package actions;
+package org.terasology.actions;
 
-import components.LocomotiveComponent;
+import org.terasology.components.LocomotiveComponent;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
@@ -30,23 +30,31 @@ import org.terasology.minecarts.controllers.CartMotionSystem;
 import org.terasology.registry.In;
 import org.terasology.segmentedpaths.components.PathFollowerComponent;
 
+/**
+ * Handles activation and update of locomotive carts
+ */
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class LocomotiveAction extends BaseComponentSystem implements UpdateSubscriberSystem {
     @In
-    EntityManager entityManager;
+    private EntityManager entityManager;
 
     @In
-    CartMotionSystem cartMotionSystem;
+    private CartMotionSystem cartMotionSystem;
 
     @Override
     public void update(float delta) {
-        for (EntityRef locomotiveVehicle: entityManager.getEntitiesWith(RailVehicleComponent.class, LocomotiveComponent.class, PathFollowerComponent.class)) {
+        float maxVelocity = 10f;
+
+        // Multiplied to delta to calculate additional speed
+        float multiplier = (20f / 2.0f);
+
+        for (EntityRef locomotiveVehicle : entityManager.getEntitiesWith(RailVehicleComponent.class, LocomotiveComponent.class, PathFollowerComponent.class)) {
             LocomotiveComponent locomotiveComponent = locomotiveVehicle.getComponent(LocomotiveComponent.class);
             RailVehicleComponent railVehicleComponent = locomotiveVehicle.getComponent(RailVehicleComponent.class);
             PathFollowerComponent segmentEntityComponent = locomotiveVehicle.getComponent(PathFollowerComponent.class);
 
-            if(locomotiveComponent.active && railVehicleComponent.velocity.lengthSquared() < 10f) {
-                Vector3f additionalVelocity = new Vector3f(segmentEntityComponent.heading).normalize().mul((20f / 2.0f) * delta);
+            if (locomotiveComponent.active && railVehicleComponent.velocity.lengthSquared() < maxVelocity) {
+                Vector3f additionalVelocity = new Vector3f(segmentEntityComponent.heading).normalize().mul(multiplier * delta);
                 railVehicleComponent.velocity.add(additionalVelocity);
                 locomotiveVehicle.saveComponent(railVehicleComponent);
             }
