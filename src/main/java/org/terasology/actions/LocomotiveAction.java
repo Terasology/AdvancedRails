@@ -24,6 +24,7 @@ import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.entitySystem.systems.UpdateSubscriberSystem;
 import org.terasology.logic.common.ActivateEvent;
+import org.terasology.math.JomlUtil;
 import org.terasology.math.geom.Vector3f;
 import org.terasology.minecarts.components.RailVehicleComponent;
 import org.terasology.minecarts.controllers.CartMotionSystem;
@@ -55,7 +56,7 @@ public class LocomotiveAction extends BaseComponentSystem implements UpdateSubsc
 
             if (locomotiveComponent.active && railVehicleComponent.velocity.lengthSquared() < maxVelocity) {
                 Vector3f additionalVelocity = new Vector3f(segmentEntityComponent.heading).normalize().mul(multiplier * delta);
-                railVehicleComponent.velocity.add(additionalVelocity);
+                railVehicleComponent.velocity.add(JomlUtil.from(additionalVelocity));
                 locomotiveVehicle.saveComponent(railVehicleComponent);
             }
 
