@@ -1,12 +1,12 @@
 {
     "id" : "AdvancedRails",
-    "version" : "0.1.0-SNAPSHOT",
+    "version" : "0.2.0",
     "author" : "",
     "displayName" : "AdvancedRails",
     "description" : "",
     "dependencies" : [
         {"id": "Rails", "minVersion": "0.4.0"},
-        {"id": "Core", "minVersion": "3.0.0"}
     ],
-    "serverSideOnly" : false
+    "serverSideOnly" : false,
+    "isAsset": true
 }
