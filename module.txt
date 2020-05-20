@@ -5,7 +5,8 @@
     "displayName": "Advanced Rails",
     "description": "This module adds logic and assets for locomotives",
     "dependencies": [
-        { "id": "Rails", "minVersion": "1.0.0" }
+        { "id": "Rails", "minVersion": "1.0.0" },
+        { "id": "SegmentedPaths", "minVersion": "1.0.0" }
     ],
     "serverSideOnly": false,
     "isAsset": true,
