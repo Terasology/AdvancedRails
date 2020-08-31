@@ -15,6 +15,7 @@
  */
 package org.terasology.actions;
 
+import org.joml.Vector3f;
 import org.terasology.components.LocomotiveComponent;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
@@ -24,7 +25,6 @@ import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.entitySystem.systems.UpdateSubscriberSystem;
 import org.terasology.logic.common.ActivateEvent;
-import org.terasology.math.geom.Vector3f;
 import org.terasology.minecarts.components.RailVehicleComponent;
 import org.terasology.minecarts.controllers.CartMotionSystem;
 import org.terasology.registry.In;
