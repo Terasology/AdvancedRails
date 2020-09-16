@@ -1,8 +1,8 @@
 // Copyright 2020 The Terasology Foundation
 // SPDX-License-Identifier: Apache-2.0
-package org.terasology.actions;
+package org.terasology.advancedrails.actions;
 
-import org.terasology.components.LocomotiveComponent;
+import org.terasology.advancedrails.components.LocomotiveComponent;
 import org.terasology.engine.entitySystem.entity.EntityManager;
 import org.terasology.engine.entitySystem.entity.EntityRef;
 import org.terasology.engine.entitySystem.event.ReceiveEvent;
