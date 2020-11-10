@@ -48,14 +48,16 @@ public class LocomotiveAction extends BaseComponentSystem implements UpdateSubsc
         // Multiplied to delta to calculate additional speed
         float multiplier = (20f / 2.0f);
 
-        for (EntityRef locomotiveVehicle : entityManager.getEntitiesWith(RailVehicleComponent.class, LocomotiveComponent.class, PathFollowerComponent.class)) {
+        for (EntityRef locomotiveVehicle : entityManager.getEntitiesWith(RailVehicleComponent.class,
+                LocomotiveComponent.class, PathFollowerComponent.class)) {
             LocomotiveComponent locomotiveComponent = locomotiveVehicle.getComponent(LocomotiveComponent.class);
             RailVehicleComponent railVehicleComponent = locomotiveVehicle.getComponent(RailVehicleComponent.class);
             PathFollowerComponent segmentEntityComponent = locomotiveVehicle.getComponent(PathFollowerComponent.class);
 
             if (locomotiveComponent.active && railVehicleComponent.velocity.lengthSquared() < maxVelocity) {
-                Vector3f additionalVelocity = new Vector3f(segmentEntityComponent.heading).normalize().mul(multiplier * delta);
-                railVehicleComponent.velocity.add(JomlUtil.from(additionalVelocity));
+                Vector3f additionalVelocity =
+                        new Vector3f(segmentEntityComponent.heading).normalize().mul(multiplier * delta);
+                railVehicleComponent.velocity.add(additionalVelocity);
                 locomotiveVehicle.saveComponent(railVehicleComponent);
             }
 
