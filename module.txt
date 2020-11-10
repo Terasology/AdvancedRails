@@ -1,12 +1,14 @@
 {
-    "id" : "AdvancedRails",
-    "version" : "0.1.0-SNAPSHOT",
-    "author" : "",
-    "displayName" : "AdvancedRails",
-    "description" : "",
-    "dependencies" : [
-        {"id": "Rails", "minVersion": "0.4.0"},
-        {"id": "Core", "minVersion": "3.0.0"}
+    "id": "AdvancedRails",
+    "version": "1.0.0",
+    "author": "The Terasology Foundation",
+    "displayName": "Advanced Rails",
+    "description": "This module adds logic and assets for locomotives",
+    "dependencies": [
+        { "id": "Rails", "minVersion": "1.0.0" },
+        { "id": "SegmentedPaths", "minVersion": "1.0.0" }
     ],
-    "serverSideOnly" : false
+    "serverSideOnly": false,
+    "isAsset": true,
+    "isLibrary": true
 }
